@@ -20,14 +20,19 @@ double cal_entropy(string str, double n){
 }
 
 int main(){
-    ifstream in("test3.csv");
+    ifstream in("test.csv");
     ofstream out("output.csv");
     string str;
     int n;
-    int window_size = 2, count_entropy = 0 ;
+    int window_size = 3, count_entropy = 0 ;
     in>>str;
-    count_entropy= str.size()-1;
     n= str.size();
+    for (int i=0; i<n; i++){
+        if (i+window_size > n)
+            break;
+
+        count_entropy++;
+    }
     for (int i=0; i<count_entropy; i++){
         out<<"Entropy "<<i+1<<" = "<<cal_entropy(str.substr(i, window_size), n)<<endl;
     }
