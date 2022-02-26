@@ -20,13 +20,17 @@ double cal_entropy(string str, double n){
 }
 
 int main(){
-    ifstream in("test.csv");
+    ifstream in("input.csv");
     ofstream out("output.csv");
-    string str;
+    string str="", s;
     int n;
-    int window_size = 3, count_entropy = 0 ;
-    in>>str;
+    int window_size = 0, count_entropy = 0 ;
+    while (in.good()){
+        in>>s;
+        str.append(s);
+    }
     n= str.size();
+    window_size= n-99;
     for (int i=0; i<n; i++){
         if (i+window_size > n)
             break;
@@ -34,7 +38,7 @@ int main(){
         count_entropy++;
     }
     for (int i=0; i<count_entropy; i++){
-        out<<"Entropy "<<i+1<<" = "<<cal_entropy(str.substr(i, window_size), n)<<endl;
+        out<<"Entropy "<<i+1<<" = "<<cal_entropy(str.substr(i, window_size), window_size)<<endl;
     }
     cout<<"CSV file generated";
     out.close();
