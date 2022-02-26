@@ -3,3 +3,5 @@
 output.csv
 binaryequivalent.txt
 cal_entropy.cpp
+histogram.*
+cal.cpp
