@@ -29,8 +29,8 @@ double cal_entropy(string str, double n, int q){
 }
 
 int main(){
-    ifstream in("test.csv");
-    ofstream out("output2.csv");
+    ifstream in("input_tsallis.csv");
+    ofstream out("output_tsallis.csv");
     string str="", s;
     int n;
     int window_size = 0, count_entropy = 0 ;
